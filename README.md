@@ -1,50 +1,81 @@
-# Welcome to your Expo app 👋
+# 📱 Notícias do Elevador
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo mobile desenvolvido com **React Native + Expo**, com foco em simular um painel de atualizações de elevador com interface dinâmica.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Funcionalidades
 
-   ```bash
-   npm install
-   ```
+- 📜 Lista de notícias com **ScrollView**
+- 🌗 Alternância de tema **claro/escuro**
+- 🔁 Controle de estado com **useState**
+- ⏳ Indicador de carregamento simulando **atualizações OTA**
+- 🧩 Componentização da interface
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tecnologias utilizadas
 
-In the output, you'll find options to open the app in a
+- React Native
+- Expo
+- TypeScript
+- EAS (Expo Application Services)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 Interface
 
-## Get a fresh project
+A tela principal simula um painel de elevador exibindo:
 
-When you're ready, run:
+- Atualizações recentes
+- Informações do sistema
+- Mudanças visuais em tempo real (tema)
+
+---
+
+## 🐞 Bug visual (proposital)
+
+Foi inserido um bug visual no tamanho do título das notícias, reduzindo sua legibilidade.
+
+### ✔ Correção
+
+O bug foi corrigido ajustando o tamanho da fonte, simulando uma atualização OTA sem necessidade de rebuild completo.
+
+---
+
+## 🔄 OTA (Over The Air Update)
+
+A correção foi aplicada utilizando o comando:
 
 ```bash
-npm run reset-project
+eas update --branch production --message "corrige bug visual"
+```
+## ▶️ Como executar o projeto
+
+```bash
+npm install
+npm run web
+```
+Ou:
+
+```bash
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📦 Build com EAS
 
-## Learn more
+```bash
+eas build --platform android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📌 Observações
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Este projeto foi desenvolvido como atividade acadêmica, com foco em:
 
-## Join the community
+- Gerenciamento de estado
 
-Join our community of developers creating universal apps.
+- Interface responsiva
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Atualizações OTA
+
+- Organização em componentes
