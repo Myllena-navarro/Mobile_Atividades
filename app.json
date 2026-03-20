@@ -43,6 +43,19 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "cde9e31e-4397-4fca-a9dd-e039aa593c19"
+      }
+    },
+    "owner": "myllena250",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/cde9e31e-4397-4fca-a9dd-e039aa593c19"
     }
   }
 }
