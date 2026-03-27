@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-type LoadingBoxProps = {
+type Props = {
   texto: string;
   textoSecundario: string;
   card: string;
@@ -13,7 +13,25 @@ export default function LoadingBox({
   textoSecundario,
   card,
   borda,
-}: LoadingBoxProps) {
+}: Props) {
+  const [progresso, setProgresso] = useState(1);
+  const [concluido, setConcluido] = useState(false);
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setProgresso((prev) => {
+        if (prev >= 5) {
+          clearInterval(intervalo);
+          setConcluido(true);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(intervalo);
+  }, []);
+
   return (
     <View
       style={[
@@ -26,13 +44,27 @@ export default function LoadingBox({
     >
       <ActivityIndicator size="large" color="#2F80ED" />
 
-      <Text style={[styles.loadingTexto, { color: texto }]}>
-        Aplicando atualizações OTA...
-      </Text>
+      {!concluido ? (
+        <>
+          <Text style={[styles.loadingTexto, { color: texto }]}>
+            Aplicando atualizações OTA... ({progresso}/5)
+          </Text>
 
-      <Text style={[styles.loadingSubtexto, { color: textoSecundario }]}>
-        Correções visuais em andamento
-      </Text>
+          <Text style={[styles.loadingSubtexto, { color: textoSecundario }]}>
+            Atualizando componentes do sistema
+          </Text>
+        </>
+      ) : (
+        <>
+          <Text style={[styles.loadingTexto, { color: texto }]}>
+            ✅ Atualização concluída
+          </Text>
+
+          <Text style={[styles.loadingSubtexto, { color: textoSecundario }]}>
+            Sistema atualizado com sucesso
+          </Text>
+        </>
+      )}
     </View>
   );
 }
